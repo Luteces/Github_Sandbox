@@ -19,10 +19,10 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: true
-    
+
 defaults:
-      run:
-        working-directory: ./svelte_sandbox 
+  run:
+    working-directory: ./svelte_sandbox
 jobs:
   build:
     runs-on: ubuntu-20.04
