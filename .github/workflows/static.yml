@@ -24,7 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     env:
-      working-directory: ./svelte_sandbox
+      working-directory: svelte_sandbox
 
     strategy:
       matrix:
