@@ -44,5 +44,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           # Upload entire repository
-          folder: build
+          folder: ./build
 
