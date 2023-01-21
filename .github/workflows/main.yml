@@ -22,7 +22,7 @@ concurrency:
 
 defaults:
   run:
-    working-directory: ./svelte_sandbox
+    working-directory: ././svelte_sandbox
 jobs:
   build:
     runs-on: ubuntu-20.04
