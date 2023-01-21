@@ -44,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: build folder
-          path: build/
+          path: ./build
 
   deploy:
     environment:
@@ -59,12 +59,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
-          path: build/
+          path: ./build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: build/
+          path: ./build
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
