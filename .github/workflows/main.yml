@@ -46,6 +46,8 @@ jobs:
           name: build
           path: ./build
   deploy:
+    permissions:
+      contents: write
     needs: build
     environment:
       name: github-pages
