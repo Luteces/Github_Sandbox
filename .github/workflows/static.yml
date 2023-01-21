@@ -36,9 +36,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
-      - name : Find the directory to install dependencies
-        run: cd svelte_sandbox
       - name: Install dependencies
+        working-directory: ./svelte_sandbox
         run: pnpm install
 
   deploy:
