@@ -27,7 +27,6 @@ jobs:
       matrix:
         node-version: [15]
     steps:
-      - run: cd svelte_sandbox
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
         with:
@@ -37,6 +36,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
+      - name : Find the directory to install dependencies
+        run: cd svelte_sandbox
       - name: Install dependencies
         run: pnpm install
 
