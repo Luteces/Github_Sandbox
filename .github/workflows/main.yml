@@ -40,31 +40,9 @@ jobs:
         run: pnpm install
       - name: Build dependencies
         run: pnpm build
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: ./build
-  deploy:
-    needs: build
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Download artifact
-        uses: actions/download-artifact@v1
-        with:
-          name: build
       - name: Upload artifact
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           # Upload entire repository
           folder: build
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v1
+
