@@ -37,6 +37,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'pnpm'
+        path: './svelte_sandbox'
     - name: Install dependencies
       run: pnpm install
 
