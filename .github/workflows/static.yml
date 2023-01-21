@@ -23,6 +23,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    env:
+      working-directory: ./svelte_sandbox
+
     strategy:
       matrix:
         node-version: [15]
@@ -37,7 +40,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
       - name: Install dependencies
-        working-directory: ./svelte_sandbox
         run: pnpm install
 
   deploy:
