@@ -20,7 +20,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -28,18 +27,18 @@ jobs:
       matrix:
         node-version: [15]
     steps:
-    - uses: actions/checkout@v3
-    - uses: pnpm/action-setup@v2
-      with:
-        version: 7
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'pnpm'
-        path: './svelte_sandbox'
-    - name: Install dependencies
-      run: pnpm install
+      - run: cd svelte_sandbox
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
 
   deploy:
     environment:
@@ -55,7 +54,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './svelte_sandbox/build/'
+          path: "./svelte_sandbox/build/"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
